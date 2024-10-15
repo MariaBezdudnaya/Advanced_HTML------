@@ -22,7 +22,7 @@ function validateInput (input) { // функция валидации формы
 
   if (input.name === 'phone' && !/^\+7\(\d{3}\)-\d{3}-\d{4}$/.test(input.value)) {
     isInputValid = false;
-    errorTextContainer.innerHTML = 'Введите номер телефона в формате +7(ХХХ)-ХХХ-ХХХХ.';
+    errorTextContainer.innerHTML = 'Неверный формат.';
   }
 
   // Валидация загружаемого файла: только JPEG

@@ -97,6 +97,8 @@ textarea.input {
 .validation-message {
   color: var(--invalid-color);
   margin: 0;
+  font-size: 12px;
+  color: #c05252;
 }
 
 .validation-message:not(:empty) {
