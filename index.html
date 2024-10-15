@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.png" />
+  <title>Contact form</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+</head>
+<body>
+  <form action="" name="contact-form" class="form">
+      <div class="steps">
+          <span id="step-1" data-active>1</span>
+          <span id="step-2">2</span>
+          <span id="step-3">3</span>
+      </div>
+
+      <div id="form-step-1" class="form-step">
+          <label fom="name">Имя</label>
+          <input type="text" class="input" name="name" placeholder="Иванов Иван" required />
+          <p id="name-error" class="validation-message"></p>
+          <br />
+          <label for="email">Email</label>
+          <input type="email" class="input" name="email" placeholder="ivanov@example.com" required />
+          <p id="email-error" class="validation-message"></p>
+      </div>
+      <div id="form-step-2" class="form-step">
+          <label for="phone">Номер телефона</label>
+          <input type="tel" class="input" name="phone" placeholder="+7 (987)-654-1212" required />
+          <p id="phone-error" class="validation-message"></p>
+          <br />
+          <label for="address">Домашний адрес</label>
+          <textarea class="input" name="address" rows="4" placeholder="г. Москва, ул. Ленина, 1" required></textarea>
+          <p id="address-error" class="validation-message"></p>
+      </div>
+      <div id="form-step-3" class="form-step">
+          <label for="cv">Выберите резюме</label>
+          <input type="file" class="input" name="cv" required />
+          <p id="cv-error" class="validation-message"></p>
+      </div>
+
+      <div class="navigation">
+          <button type="button" id="prev-step-btn" class="btn" onclick="prevStep()">Назад</button>
+          <button type="button" id="next-step-btn" class="btn" onclick="nextStep()">Далее</button>
+          <button type="submit" id="submit-form-btn" class="btn">Отправить</button>
+      </div>
+  </form>
+
+  <div class="link">
+    <a href="link-form/index.html">Связаться с нами</p> 
+  </div>
+
+</body>
+</html>

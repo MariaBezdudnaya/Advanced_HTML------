@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../favicon.png" />
+  <title>Link form</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="main.js"></script>
+</head>
+<body>
+  <form action="" name="link-form " class="form">
+    <div class="form-info">
+      <label for="email">Email</label>
+      <input type="email" class="input" name="email" placeholder="ivanov@example.com" required />
+      <p id="email-error" class="validation-message"></p>
+      <br />
+      <label for="phone">Номер телефона</label>
+      <input type="tel" class="input" name="phone" placeholder="+7(987)-654-1212" required />
+      <p id="phone-error" class="validation-message"></p>
+      <br />
+      <label for="cv">Выберите файл</label>
+      <input type="file" class="input" name="cv" required />
+      <p id="cv-error" class="validation-message"></p>
+    </div>
+
+    <div class="navigation">
+      <button type="submit" id="submit-form-btn" class="btn" disabled>Отправить</button>
+    </div>
+  </form>
+
+  <div class="link">
+    <a href="../index.html">Назад</a>    
+  </div>
+</body>
+</html>
