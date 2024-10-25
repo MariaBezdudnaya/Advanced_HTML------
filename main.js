@@ -44,7 +44,6 @@ function prevStep() { // функция перехода на предыдущи
 
 function nextStep() { // функция перехода на следующий шаг
   if (!validateStep()) return;
-
   unsubscribeInputsChange(); // отписываемся от изменений инпутов
   currentStep++;
   showStep(); // показываем все нужные инпуты, обновляем счётчики
@@ -87,6 +86,14 @@ function validateInput (input) { // функция валидации ввода
     errorTextContainer.innerHTML = ''; // иначе скрываем сообщение об ошибке
   }
 
+  if (input.name === 'email' && !/[a-zA-Z0-9]+@[a-zA-Z0-9]+\./.test(input.value)) { // валидация email: только email
+    isInputValid = false;
+    errorTextContainer.innerHTML = 'Введите корректный email.';
+  } else if (input.name === 'phone' && !/^\+7\(\d{3}\)-\d{3}-\d{4}$/.test(input.value)) { // валидация телефона: только телефон
+    isInputValid = false;
+    errorTextContainer.innerHTML = 'Неверный формат.';
+  }
+
   return isInputValid; // возвращаем результат валидации
 }
 
@@ -125,13 +132,29 @@ function setButtonEnabled() { // функция включения кнопки,
 
 function sendForm(e) { // функция отправки формы
   e.preventDefault(); // отменяем стандартное поведение браузера
+  alert('Форма отправлена!');
 
-  const formData = new FormData(event.target);
+  const formData = new FormData(e.target);
   const data = {};
   for (const [key, value] of formData) {
     data[key] = value;
   }
-  console.log('Форма отправлена:', data);
+
+  // После отправки формы очищаем все поля формы
+  const inputs = document.querySelectorAll('.input');
+  inputs.forEach(input => {
+    input.value = '';
+    input.classList.remove('valid');
+  });
+
+  // Убираем активный класс с последнего шага
+  const steps = document.getElementById('step-3');
+  steps.removeAttribute('data-active');
+
+  currentStep = 1;
+  updateStepsIndicators(currentStep);
+  subscribeInputsChange();
+  showStep();
 }
 
 window.addEventListener('load', () => {
